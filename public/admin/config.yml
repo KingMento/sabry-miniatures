@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "miniatures"
+    label: "Miniature"
+    folder: "src/content/miniatures"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Categoria", name: "category", widget: "select", options: ["Fantasy", "Sci-Fi", "Busti", "Storico", "Altro"] }
+      - { label: "Immagine Principale", name: "image", widget: "image" }
+      - { label: "Galleria Foto", name: "gallery", widget: "list", field: { label: "Foto", name: "photo", widget: "image" }, required: false }
+      - { label: "Scala / Dimensione", name: "scale", widget: "string", required: false, default: "32mm" }
+      - { label: "Tecniche e Colori", name: "techniques", widget: "string", required: false }
+      - { label: "Descrizione / Note", name: "body", widget: "markdown" }
